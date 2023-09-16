@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:17:26 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:07 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:57:05 by jonahkollne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
@@ -20,11 +23,14 @@ int main()
 	club.setType("some other type of club");
 	bob.attack();
 
-	Weapon club = Weapon("crude spiked club");
+	Weapon bclub = Weapon("crude spiked club");
 	HumanB jim("Jim");
-	jim.setWeapon(club);
+	jim.setWeapon(bclub);
 	jim.attack();
-		club.setType("some other type of club");
+	bclub.setType("some other type of club");
 	jim.attack();
+
+	//system("leaks Violence");
+
 	return 0;
 }

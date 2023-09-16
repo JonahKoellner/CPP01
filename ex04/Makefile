@@ -6,14 +6,14 @@
 #    By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 13:05:24 by jkollner          #+#    #+#              #
-#    Updated: 2023/09/15 10:11:29 by jonahkollne      ###   ########.fr        #
+#    Updated: 2023/09/16 10:32:39 by jonahkollne      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = Violence
+name = sifl
 cc = c++
 cflags = -Wall -Werror -Wextra -std=c++98
-src = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+src = main.cpp
 obj = ${src:.cpp=.o}
 
 all: ${name}

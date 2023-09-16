@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:20:43 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/13 13:37:00 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:37:52 by jonahkollne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#pragma once
+
 #include <string>
 
 class Weapon
@@ -18,7 +19,7 @@ class Weapon
 private:
 	std::string type;
 public:
-	const std::string getType();
+	const std::string& getType();
 	void setType(std::string newType);
 	Weapon(std::string type);
 };

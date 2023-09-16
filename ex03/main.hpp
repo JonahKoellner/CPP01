@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:17 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/13 13:36:19 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:31:24 by jonahkollne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAIN_HPP
-# define MAIN_HH
+# define MAIN_HPP
 
 #pragma once
 #include <string>

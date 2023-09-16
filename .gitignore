@@ -1,3 +1,6 @@
+#ignore vscode settings
+.vscode/settings.json
+
 # Prerequisites
 *.d
 
