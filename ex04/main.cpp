@@ -6,7 +6,7 @@
 /*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:06:39 by jonahkollne       #+#    #+#             */
-/*   Updated: 2023/09/16 11:36:44 by jonahkollne      ###   ########.fr       */
+/*   Updated: 2023/09/16 11:51:58 by jonahkollne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int main(int argc, char *argv[]){
 
-	// Get programm arguments
+	// Check programm arguments
 	if (argc != 4)
 		return (std::cout << "Input error! (" << argv[0] << " <file_name> <find> <replace>)" << std::endl, 1);
+	std::string to_replace(argv[2]);
+	if (to_replace == "")
+		return (std::cout << "This is no replaceable string!" << std::endl, 1);
+	std::string replacement(argv[3]);
 
 	// Open file
 	std::string file_name(argv[1]);
@@ -35,15 +39,16 @@ int main(int argc, char *argv[]){
 	std::string content (file_content.str());
 	file.close();
 
-	// Replace algorithm
-	std::string to_replace(argv[2]);
-	std::string replacement(argv[3]);
-	std::string::size_type found_pos = content.find(to_replace);
-	while (found_pos != std::string::npos){
-		content.erase(found_pos, to_replace.length());
-		content.insert(found_pos, replacement);
-		std::cout << content;
-		found_pos = content.find(to_replace);
+	// Prevent infinite loop by searching and replacing the same thing
+	if (!(to_replace == replacement)){
+		// Replace algorithm
+		std::string::size_type found_pos = content.find(to_replace, 0);
+		while (found_pos != std::string::npos){
+			content.erase(found_pos, to_replace.length());
+			content.insert(found_pos, replacement);
+			std::cout << content;
+			found_pos = content.find(to_replace, found_pos + replacement.length());
+		}
 	}
 
 	// Replace ending for file name
