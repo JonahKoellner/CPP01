@@ -6,7 +6,7 @@
 /*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:06:39 by jonahkollne       #+#    #+#             */
-/*   Updated: 2023/09/16 11:28:18 by jonahkollne      ###   ########.fr       */
+/*   Updated: 2023/09/16 11:36:44 by jonahkollne      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ int main(int argc, char *argv[]){
 
 	// Read file content and store
 	std::stringstream file_content;
+	if (!file.is_open()){
+		file.open(file_name);
+		if (file.fail())
+			return (std::cout << "File closed unexpected and cant be reopened!" << std::endl, 1);
+	}
 	file_content << file.rdbuf();
 	std::string content (file_content.str());
 	file.close();
@@ -51,6 +56,8 @@ int main(int argc, char *argv[]){
 
 	// Fille replaced content
 	std::ofstream file_replace (replace_file_name);
+	if (file_replace.fail())
+		return (std::cout << "Couldn't create replace file! Aborting..." << std::endl, 1);
 	file_replace << content;
 	file_replace.close();
 	return (0);
