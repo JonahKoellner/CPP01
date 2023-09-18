@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+         #
+#    By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 13:05:24 by jkollner          #+#    #+#              #
-#    Updated: 2023/09/17 13:30:20 by jonahkollne      ###   ########.fr        #
+#    Updated: 2023/09/18 10:52:59 by jkollner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ all: ${name}
 ${name}: ${obj}
 	${cc} ${cflags} ${obj} -o ${name}
 
+%.o: %.cpp
+	$(cc) $(cflags) $< -c -o $@
+
 clean:
-	rm ${obj}
+	rm -f ${obj}
 
 fclean: clean
-	rm ${name}
+	rm -f ${name}
 
 re:	fclean all
 
-.PHONY: all ${name} clean fclean
-
+.PHONY: all re clean fclean
