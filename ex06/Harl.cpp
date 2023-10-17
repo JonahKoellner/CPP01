@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonahkollner <jonahkollner@student.42.f    +#+  +:+       +#+        */
+/*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 12:24:37 by jonahkollne       #+#    #+#             */
-/*   Updated: 2023/09/17 13:50:08 by jonahkollne      ###   ########.fr       */
+/*   Updated: 2023/10/17 17:05:11 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,13 @@ void Harl::complain( std::string level ){
 	{
 	case DEBUG:
 		(this->*funcPointers[0])();
-		(this->*funcPointers[1])();
-		(this->*funcPointers[2])();
-		(this->*funcPointers[3])();
-		break ;
 	case INFO:
 		(this->*funcPointers[1])();
-		(this->*funcPointers[2])();
-		(this->*funcPointers[3])();
-		break ;
 	case WARNING:
 		(this->*funcPointers[2])();
-		(this->*funcPointers[3])();
-		break ;
 	case ERROR:
 		(this->*funcPointers[3])();
-		break ;
+		break;
 	default:
 		std::cout << "[ Nothing to complain ]" << std::endl;
 		break;
